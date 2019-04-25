@@ -11,12 +11,12 @@ const getTag = (pos: number, html: string, tag: string) => {
 }
 
 const getTags = (html: string, tag: string): string[] => {
-  const g = (tags: string[], pos: number): string[] => {
-    const r = getTag(pos, html, tag)
-    return r ? g([...tags, r.tag], r.pos) : tags
+  const addTagsTo = (tags: string[], pos: number): string[] => {
+    const result = getTag(pos, html, tag)
+    return result ? addTagsTo([...tags, result.tag], result.pos) : tags
   }
 
-  return g([], 0)
+  return addTagsTo([], 0)
 }
 
 export const removeTags = (html: string) => html.replace(/<[^>]*>/g, "")

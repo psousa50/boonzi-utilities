@@ -1,13 +1,13 @@
 import { getHTMLTableContents, removeTags, buildHTMLTable } from "./HtmlTable"
 
 describe("removeTags", () => {
-  it("removes tags from html", () => {
+  it("removes tags from an html string", () => {
     expect(removeTags("<div>something</div>")).toBe("something")
   })
 })
 
 describe("getHTMLTableContents", () => {
-  it("returns an array of rows with cell values", () => {
+  it("returns an HTMLTable from an html string", () => {
     const row1 = "<tr><td>r1c1</td><td>r1c2</td></tr>"
     const row2 = "<tr><td><a>r2c1</a></td><td>r2c2</td></tr>"
     const row3 = "<tr><td>r3c1</td></tr>"
@@ -26,7 +26,7 @@ describe("getHTMLTableContents", () => {
 })
 
 describe("buildHTMLTable", () => {
-  it("", () => {
+  it("builds an html string from an HTMLTable", () => {
     const table = [["r1c1", "r1c2"], ["r2c1", "r2c2"], ["r3c1"]]
 
     const row1 = "<tr><td>r1c1</td><td>r1c2</td></tr>"
