@@ -1,7 +1,6 @@
 import React, { ChangeEvent } from "react"
-import { getHTMLTableContents, buildHTMLTable } from "./core/HtmlTable"
 import "./App.css"
-import { transformTableBPI } from "./core/transformTable"
+import { processCreditCardBPI } from "./core/transforms/bpi"
 
 interface AppState {
   html: string
@@ -41,8 +40,7 @@ class App extends React.PureComponent<{}, AppState> {
   }
 
   private updateResult = (html: string) => {
-    const tableContents = getHTMLTableContents(html)
-    const result = buildHTMLTable(transformTableBPI(tableContents))
+    const result = processCreditCardBPI(html)
 
     if (result) {
       navigator.clipboard.writeText(result)
