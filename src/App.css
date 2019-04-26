@@ -1,4 +1,11 @@
-.rowC {
+.col {
   display: flex;
   flex-direction: row;
+  padding-left: 20px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  padding-right: 50px;
 }
